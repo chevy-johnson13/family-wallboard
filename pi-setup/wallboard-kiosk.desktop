@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Family Wallboard Kiosk
+Comment=Start Family Wallboard in kiosk mode
+Exec=/home/pi/kiosk/start-wallboard.sh
+Icon=chromium
+Terminal=false
+Categories=Network;WebBrowser;
+X-GNOME-Autostart-enabled=true
+

@@ -1,0 +1,42 @@
+# ============================================
+# COPY THIS TO YOUR HOME ASSISTANT CONFIG
+# ============================================
+
+# Step 1: Add this to configuration.yaml
+# (If you don't have a configuration.yaml, create one in your Home Assistant config directory)
+
+rest_command:
+  trigger_wallboard_overlay:
+    url: "http://host.docker.internal:3000/api/overlay/trigger"
+    method: POST
+    content_type: "application/json"
+    payload: |
+      {
+        "cameraEntityId": "camera.front_door_live_view",
+        "duration": 60000
+      }
+
+# Step 2: Add this to automations.yaml
+# (Or create via the UI - see DOORBELL_AUTOMATION_SETUP.md)
+
+automation:
+  - id: ring_doorbell_wallboard
+    alias: "Ring Doorbell → Family Wallboard"
+    description: "Show camera overlay on wallboard when doorbell is pressed"
+    
+    trigger:
+      - platform: event
+        event_type: ring_event
+        event_data:
+          kind: ding
+          doorbot_id: !secret front_door_doorbot_id
+    
+    action:
+      - service: rest_command.trigger_wallboard_overlay
+        data: {}
+    
+    mode: single
+
+# NOTE: For the doorbot_id, you can find it in Developer Tools → Events
+# Or just use the simpler state trigger on event.front_door_ding
+

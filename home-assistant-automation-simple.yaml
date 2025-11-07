@@ -1,0 +1,35 @@
+# ============================================
+# SIMPLE RING DOORBELL AUTOMATION
+# ============================================
+# Copy this into Home Assistant Automations
+
+alias: "Ring Doorbell → Family Wallboard"
+description: "Show camera overlay when doorbell is pressed"
+
+# TRIGGER: When Ring doorbell event fires
+trigger:
+  - platform: event
+    event_type: ring_event
+    event_data:
+      kind: ding
+
+# ACTION: Call the wallboard REST API
+action:
+  - service: rest_command.trigger_wallboard_overlay
+    data: {}
+
+mode: single
+
+# ============================================
+# ALTERNATIVE: If the above doesn't work
+# ============================================
+# Some Ring setups use this trigger instead:
+# 
+# trigger:
+#   - platform: state
+#     entity_id: sensor.front_door_last_activity
+# 
+# condition:
+#   - condition: template
+#     value_template: "{{ 'ding' in states('sensor.front_door_last_activity') | lower }}"
+

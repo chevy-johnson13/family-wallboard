@@ -1,0 +1,18 @@
+# Family Wallboard - LXDE Autostart Configuration
+# Place this file at: ~/.config/lxsession/LXDE-pi/autostart
+
+@lxpanel --profile LXDE-pi
+@pcmanfm --desktop --profile LXDE-pi
+@xscreensaver -no-splash
+
+# Disable screen blanking and power management
+@xset s off
+@xset -dpms
+@xset s noblank
+
+# Hide mouse cursor when idle
+@unclutter -idle 0.1 -root
+
+# Wait for backend to start, then launch Chromium in kiosk mode
+@bash -c "sleep 15 && chromium --kiosk --noerrdialogs --disable-infobars --no-first-run --enable-features=OverlayScrollbar --start-fullscreen --disable-translate --disable-features=TranslateUI --disk-cache-dir=/dev/null 'http://localhost:3000'"
+

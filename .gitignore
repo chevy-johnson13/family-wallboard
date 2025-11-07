@@ -1,0 +1,58 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist/
+build/
+*.local
+
+# Environment variables (NEVER commit these - they contain sensitive API keys!)
+.env
+.env.local
+.env.*.local
+backend/.env
+frontend/.env
+*.env
+wallboard.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Cache
+.cache/
+*.cache
+
+# Testing
+coverage/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.tar.gz
+wallboard-deploy.tar.gz
+
+# Data files
+data/events.json
+data/tasks.json
+backend/data/meals.json
+
+# Debug/test scripts (optional - you can keep or remove)
+# DEBUG_KIOSK.sh
+# TEST_*.sh
+

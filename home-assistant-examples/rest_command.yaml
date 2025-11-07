@@ -1,0 +1,20 @@
+# Home Assistant REST Command Configuration
+# Add this to your configuration.yaml file
+
+rest_command:
+  trigger_wallboard_overlay:
+    url: "http://YOUR_MAC_IP:3000/api/overlay/trigger"
+    # ⬆️ For testing on Mac, use your Mac's local IP (find with: ifconfig | grep "inet ")
+    # ⬆️ For Pi deployment, change to your Pi's IP or hostname (e.g., familywallboard.local)
+    method: POST
+    content_type: "application/json"
+    payload: |
+      {
+        "cameraEntityId": "camera.front_door_live_view",
+        "duration": 60000
+      }
+    # Duration is in milliseconds:
+    # 30000 = 30 seconds
+    # 60000 = 60 seconds (1 minute)
+    # 120000 = 120 seconds (2 minutes)
+

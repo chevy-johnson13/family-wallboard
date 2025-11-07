@@ -1,0 +1,62 @@
+# Home Assistant Automation for Ring Doorbell
+# Add this to your automations.yaml file or create via the UI
+
+- id: family_wallboard_ring_doorbell_alert
+  alias: "Family Wallboard - Ring Doorbell Alert"
+  description: "Display Ring camera feed on wallboard when doorbell is pressed"
+  
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.front_door_ding
+      # ⬆️ Change this to YOUR Ring doorbell button entity ID
+      # Common entity IDs:
+      #   - binary_sensor.front_door_ding
+      #   - binary_sensor.ring_front_door_button
+      #   - binary_sensor.doorbell_button
+      to: "on"
+  
+  condition: []
+  
+  action:
+    - service: rest_command.trigger_wallboard_overlay
+      data: {}
+  
+  mode: single
+
+
+# Optional: Trigger on Motion Detection
+- id: family_wallboard_ring_motion_alert
+  alias: "Family Wallboard - Front Door Motion"
+  description: "Display Ring camera feed on wallboard when motion is detected"
+  
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.front_door_motion
+      # ⬆️ Change this to YOUR Ring motion sensor entity ID
+      to: "on"
+  
+  condition: []
+  
+  action:
+    - service: rest_command.trigger_wallboard_overlay
+      data: {}
+  
+  mode: single
+  # Prevent multiple rapid triggers
+  
+  
+# Optional: Multiple Cameras Example
+# If you have front and back door cameras:
+
+# - id: wallboard_back_door_ring
+#   alias: "Wallboard - Back Door Ring"
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.back_door_ding
+#       to: "on"
+#   action:
+#     - service: rest_command.trigger_wallboard_overlay
+#       data:
+#         cameraEntityId: "camera.ring_back_door"
+#         duration: 60000
+

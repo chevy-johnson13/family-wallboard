@@ -1,0 +1,51 @@
+# Family Wallboard - Environment Configuration
+# Copy this file to .env and fill in your actual values
+
+# Server Configuration
+PORT=3000
+# ⚠️ IMPORTANT: Set to 'production' on Raspberry Pi for frontend to be served!
+# Use 'development' only when running locally on your Mac
+NODE_ENV=development  # Change to 'production' for Pi deployment
+
+# Calendar ICS URLs (Secret/Private URLs from your calendar providers)
+# Google Calendar: Settings > Settings for my calendars > [Calendar] > Integrate calendar > Secret address in iCalendar format
+# Outlook: Calendar > Settings > Shared calendars > Publish > ICS
+# iCloud: Calendar > Public Calendar > Copy Link (replace webcal:// with https://)
+
+# Work Calendars
+CALENDAR_CHEVON_ICS_URL=https://calendar.google.com/calendar/ical/YOUR_EMAIL/private-TOKEN/basic.ics
+CALENDAR_CHEVON_COLOR=#3B82F6
+CALENDAR_CHEVON_NAME=Chevon (Work)
+
+CALENDAR_SIOBHAN_ICS_URL=https://calendar.google.com/calendar/ical/SIOBHAN_EMAIL/private-TOKEN/basic.ics
+CALENDAR_SIOBHAN_COLOR=#EC4899
+CALENDAR_SIOBHAN_NAME=Siobhan (Work)
+
+# Personal iCloud Calendars (optional)
+CALENDAR_CHEVON_PERSONAL_ICS_URL=https://p01-calendarws.icloud.com/ca/subscribe/1/YOUR_ICLOUD_TOKEN
+CALENDAR_CHEVON_PERSONAL_COLOR=#60A5FA
+CALENDAR_CHEVON_PERSONAL_NAME=Chevon (Personal)
+
+CALENDAR_SIOBHAN_PERSONAL_ICS_URL=https://p01-calendarws.icloud.com/ca/subscribe/1/SIOBHAN_ICLOUD_TOKEN
+CALENDAR_SIOBHAN_PERSONAL_COLOR=#F472B6
+CALENDAR_SIOBHAN_PERSONAL_NAME=Siobhan (Personal)
+
+# Baby's Calendar (optional)
+CALENDAR_BABY_ICS_URL=https://calendar.google.com/calendar/ical/BABY_EMAIL/private-TOKEN/basic.ics
+CALENDAR_BABY_COLOR=#10B981
+CALENDAR_BABY_NAME=Baby
+
+# Todoist API
+# Get your token from: https://todoist.com/prefs/integrations
+TODOIST_API_TOKEN=your_todoist_api_token_here
+TODOIST_PROJECT_ID=your_family_project_id
+
+# Home Assistant Integration (for Ring camera overlay)
+HOME_ASSISTANT_URL=http://homeassistant.local:8123
+HOME_ASSISTANT_TOKEN=your_long_lived_access_token
+RING_CAMERA_ENTITY_ID=camera.ring_front_door
+
+# Cache Settings
+CALENDAR_CACHE_TTL=300
+TASKS_CACHE_TTL=60
+

@@ -1,0 +1,58 @@
+Project: Family Wallboard (Smart Home Calendar + To-Dos + Meals + Ring Integration)
+
+Goal
+A wall-mounted Raspberry Pi + touchscreen that replaces a Skylight calendar — showing all family events, tasks,
+meals, and live doorbell feed (via Home Assistant + Ring). The UI must be large-touch-friendly, always-on,
+auto-refreshing, and work offline briefly if Wi-Fi drops.
+
+1. Core Features
+- Unified Calendar View: Display combined Google / Outlook / iCloud calendars (via iCal / ICS feeds). Color-code by person (e.g., Chevon – blue, Wife – pink, Kids – green). Show Day / Week / Month views.
+- To-Do / Chore List: Read/write tasks from Todoist API (family project). Toggle complete, add quick tasks, auto-refresh.
+- Meal Planner: Load weekly meals from meals.json (or Google Sheet API later). Show “Dinner Tonight” prominently.
+- Ring Camera / Home Assistant Integration: When doorbell rings, display PiP live view overlay (WebRTC stream from HA entity camera.ring_front_door) for ~60 s, then auto-dismiss.
+- Touch Kiosk Interface: Full-screen Chromium kiosk on Pi boot. Large tappable buttons (≥44 px). Tabs: Today • Week • Month • Tasks • Meals. Swipe left/right to navigate.
+- Offline Resilience: Cache last 30 days of events/tasks locally (IndexedDB) to survive brief outages.
+- Night Mode: Dim display 9 pm–6 am; show minimal clock and “Tomorrow’s Highlights.”
+- Auto-Refresh & Sync: Re-fetch every 5 min or when woken from sleep; push updates when local edits occur.
+- Voice Add Task (Alexa <-> Todoist): Integrate Alexa’s Todoist Skill to allow hands-free task creation. Alexa commands like “Alexa, add buy diapers to my Todoist” will sync automatically to the family Todoist project and appear on the wallboard. Optionally, expand later with Alexa Routine -> Webhook -> /api/voice-task endpoint for custom phrasing.
+
+2. System Architecture
+Raspberry Pi 4/5
+├── Frontend (React + Vite + TypeScript)
+│    ├─ FullCalendar (dayGrid + timeGrid + list)
+│    ├─ TodoList panel (Todoist API)
+│    ├─ Meals panel (local JSON)
+│    ├─ Clock & Status bar
+│    ├─ Overlay component (for Ring feed)
+│    └─ Service Worker / IndexedDB cache
+├── Backend (Node + Express)
+│    ├─ /api/calendar → fetch ICS, parse & cache 10 min
+│    ├─ /api/tasks → Todoist REST proxy
+│    ├─ /api/meals → serve local JSON
+│    ├─ /api/overlay → endpoint for HA webhook trigger
+│    └─ .env → ICS URLs, TODOIST_TOKEN, secrets
+└── Home Assistant Instance
+     ├─ Ring integration (cameras, binary_sensors)
+     └─ Automation: on binary_sensor.front_door_ding → POST /api/overlay
+
+3. UI Layout
+Top Bar: Clock • Date • Wi-Fi / Sync status • Quick Settings button
+Main Panel (Tabs): Today → agenda list; Week → grid view; Month → compact overview; Tasks → family to-dos; Meals → weekly plan cards.
+Floating Action Button (+): quick add task/event modal.
+Overlay: Ring camera live view with close button or auto-timeout.
+
+4. Tech Stack
+Frontend: React + TypeScript (Vite), FullCalendar, React Router, Axios, Tailwind CSS
+Backend: Node.js + Express, ical.js, Todoist REST SDK, dotenv
+Persistence: IndexedDB (via idb), filesystem cache for ICS (5 min TTL)
+Kiosk: Chromium --kiosk, unclutter, autostart on boot
+Automation: Home Assistant → REST call to Pi API (/api/overlay)
+Auth: Read-only ICS URLs initially; optional OAuth later for writeback
+
+5. Milestones
+- M1 – Core Calendar: ICS parsing + FullCalendar UI + color-coding
+- M2 – To-Dos: Todoist integration (read/write) + Alexa voice link
+- M3 – Meals: Local meals.json weekly plan UI
+- M4 – Overlay API: /api/overlay endpoint + dummy test
+- M5 – Ring Integration: HA automation → Ring live view overlay
+- M6 – Polish: Night mode + offline cache + deployment scripts

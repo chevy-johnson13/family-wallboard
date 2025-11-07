@@ -1,0 +1,22 @@
+[Unit]
+Description=Family Wallboard Backend Server
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/Family-Wallboard/backend
+EnvironmentFile=/home/pi/Family-Wallboard/backend/.env
+ExecStart=/usr/bin/node src/index.js
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=family-wallboard
+
+# Environment
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
+
