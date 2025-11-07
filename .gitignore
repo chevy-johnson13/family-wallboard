@@ -16,6 +16,8 @@ build/
 backend/.env
 frontend/.env
 *.env
+.env.backup
+*.env.backup
 wallboard.env
 
 # IDE
