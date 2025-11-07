@@ -124,17 +124,17 @@ PORT=3000
 NODE_ENV=production  # ⚠️ MUST be 'production' for frontend to be served!
 
 # Calendar ICS URLs (get from your calendar providers)
-CALENDAR_CHEVON_ICS_URL=https://calendar.google.com/calendar/ical/...
-CALENDAR_CHEVON_COLOR=#3B82F6
-CALENDAR_CHEVON_NAME=Chevon
+CALENDAR_PERSON1_ICS_URL=https://calendar.google.com/calendar/ical/...
+CALENDAR_PERSON1_COLOR=#3B82F6
+CALENDAR_PERSON1_NAME=Person 1
 
-CALENDAR_WIFE_ICS_URL=https://calendar.google.com/calendar/ical/...
-CALENDAR_WIFE_COLOR=#EC4899
-CALENDAR_WIFE_NAME=Wife
+CALENDAR_PERSON2_ICS_URL=https://calendar.google.com/calendar/ical/...
+CALENDAR_PERSON2_COLOR=#EC4899
+CALENDAR_PERSON2_NAME=Person 2
 
-CALENDAR_BABY_ICS_URL=https://calendar.google.com/calendar/ical/...
-CALENDAR_BABY_COLOR=#10B981
-CALENDAR_BABY_NAME=Baby
+CALENDAR_CHILD_ICS_URL=https://calendar.google.com/calendar/ical/...
+CALENDAR_CHILD_COLOR=#10B981
+CALENDAR_CHILD_NAME=Child
 
 # Todoist API (get from https://todoist.com/prefs/integrations)
 TODOIST_API_TOKEN=your_token_here

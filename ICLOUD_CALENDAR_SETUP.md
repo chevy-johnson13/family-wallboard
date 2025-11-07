@@ -43,18 +43,18 @@ Follow these steps to get your personal iCloud calendar URL for the Family Wallb
    - Open: `backend/.env`
    - Add these lines (replace with your actual URL):
      ```env
-     CALENDAR_CHEVON_PERSONAL_ICS_URL=https://p01-calendarws.icloud.com/ca/subscribe/1/YOUR_TOKEN_HERE
-     CALENDAR_CHEVON_PERSONAL_NAME=Chevon (Personal)
-     CALENDAR_CHEVON_PERSONAL_COLOR=#60A5FA
+     CALENDAR_PERSON1_PERSONAL_ICS_URL=https://p01-calendarws.icloud.com/ca/subscribe/1/YOUR_TOKEN_HERE
+     CALENDAR_PERSON1_PERSONAL_NAME=Person 1 (Personal)
+     CALENDAR_PERSON1_PERSONAL_COLOR=#60A5FA
      ```
 
-### For Your Wife's iCloud Calendar:
+### For Person 2's iCloud Calendar:
 
 Repeat the same steps above, but use:
 ```env
-CALENDAR_WIFE_PERSONAL_ICS_URL=https://p01-calendarws.icloud.com/ca/subscribe/1/HER_TOKEN_HERE
-CALENDAR_WIFE_PERSONAL_NAME=Wife (Personal)
-CALENDAR_WIFE_PERSONAL_COLOR=#F472B6
+CALENDAR_PERSON2_PERSONAL_ICS_URL=https://p01-calendarws.icloud.com/ca/subscribe/1/PERSON2_TOKEN_HERE
+CALENDAR_PERSON2_PERSONAL_NAME=Person 2 (Personal)
+CALENDAR_PERSON2_PERSONAL_COLOR=#F472B6
 ```
 
 ---
@@ -65,22 +65,22 @@ Here's what your complete calendar section should look like:
 
 ```env
 # Work Calendars
-CALENDAR_CHEVON_ICS_URL=https://outlook.office365.com/owa/calendar/...
-CALENDAR_CHEVON_COLOR=#3B82F6
-CALENDAR_CHEVON_NAME=Chevon (Work)
+CALENDAR_PERSON1_ICS_URL=https://outlook.office365.com/owa/calendar/...
+CALENDAR_PERSON1_COLOR=#3B82F6
+CALENDAR_PERSON1_NAME=Person 1 (Work)
 
-CALENDAR_WIFE_ICS_URL=https://calendar.google.com/calendar/ical/...
-CALENDAR_WIFE_COLOR=#EC4899
-CALENDAR_WIFE_NAME=Wife (Work)
+CALENDAR_PERSON2_ICS_URL=https://calendar.google.com/calendar/ical/...
+CALENDAR_PERSON2_COLOR=#EC4899
+CALENDAR_PERSON2_NAME=Person 2 (Work)
 
 # Personal iCloud Calendars
-CALENDAR_CHEVON_PERSONAL_ICS_URL=https://p01-calendarws.icloud.com/ca/subscribe/1/...
-CALENDAR_CHEVON_PERSONAL_NAME=Chevon (Personal)
-CALENDAR_CHEVON_PERSONAL_COLOR=#60A5FA
+CALENDAR_PERSON1_PERSONAL_ICS_URL=https://p01-calendarws.icloud.com/ca/subscribe/1/...
+CALENDAR_PERSON1_PERSONAL_NAME=Person 1 (Personal)
+CALENDAR_PERSON1_PERSONAL_COLOR=#60A5FA
 
-CALENDAR_WIFE_PERSONAL_ICS_URL=https://p01-calendarws.icloud.com/ca/subscribe/1/...
-CALENDAR_WIFE_PERSONAL_NAME=Wife (Personal)
-CALENDAR_WIFE_PERSONAL_COLOR=#F472B6
+CALENDAR_PERSON2_PERSONAL_ICS_URL=https://p01-calendarws.icloud.com/ca/subscribe/1/...
+CALENDAR_PERSON2_PERSONAL_NAME=Person 2 (Personal)
+CALENDAR_PERSON2_PERSONAL_COLOR=#F472B6
 ```
 
 ---

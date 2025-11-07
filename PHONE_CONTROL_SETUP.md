@@ -9,7 +9,7 @@ Your Family Wallboard is designed to work as a **display-only device** on the Ra
 ## How It Works
 
 1. **Pi Display**: Shows the wallboard in fullscreen kiosk mode (read-only display)
-2. **Phone Control**: You and Siobhan access the wallboard from your phones to:
+2. **Phone Control**: Family members access the wallboard from their phones to:
    - View calendars, tasks, and meals
    - Add/edit tasks
    - Update meal plans
@@ -163,7 +163,7 @@ This works automatically on most modern routers.
 
 ✅ **No touchscreen needed** - cheaper and simpler  
 ✅ **Control from anywhere** - use your phone from the couch, kitchen, etc.  
-✅ **Multiple users** - both you and Siobhan can control it  
+✅ **Multiple users** - all family members can control it  
 ✅ **Easy updates** - make changes without walking to the wall  
 ✅ **Better UX** - phone interface is more responsive than touchscreen  
 

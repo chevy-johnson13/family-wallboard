@@ -34,10 +34,10 @@
 
 Paste your URL:
 ```
-CALENDAR_CHEVON_ICS_URL=https://calendar.google.com/calendar/ical/your@email.com/private-xxxxx/basic.ics
+CALENDAR_PERSON1_ICS_URL=https://calendar.google.com/calendar/ical/your@email.com/private-xxxxx/basic.ics
 ```
 
-**Repeat for your wife's and baby's calendars if desired.**
+**Repeat for Person 2's and child's calendars if desired.**
 
 #### 2. Optional: Add Todoist for Tasks
 
@@ -91,17 +91,17 @@ RING_CAMERA_ENTITY_ID=camera.ring_front_door
 
 ### Change Calendar Names/Colors
 
-Edit `/Users/chevon.johnson/Desktop/Personal/Family Wallboard/backend/.env`:
+Edit `backend/.env`:
 
 ```bash
-CALENDAR_CHEVON_NAME=Dad
-CALENDAR_CHEVON_COLOR=#3B82F6   # Blue
+CALENDAR_PERSON1_NAME=Dad
+CALENDAR_PERSON1_COLOR=#3B82F6   # Blue
 
-CALENDAR_WIFE_NAME=Mom
-CALENDAR_WIFE_COLOR=#EC4899     # Pink
+CALENDAR_PERSON2_NAME=Mom
+CALENDAR_PERSON2_COLOR=#EC4899     # Pink
 
-CALENDAR_BABY_NAME=Baby
-CALENDAR_BABY_COLOR=#10B981     # Green
+CALENDAR_CHILD_NAME=Child
+CALENDAR_CHILD_COLOR=#10B981     # Green
 ```
 
 ### Adjust Night Mode Hours

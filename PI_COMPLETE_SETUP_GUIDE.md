@@ -502,7 +502,7 @@ Change IP to match your network. Save and reboot.
 
 ## Next Steps After Setup
 
-1. **Add your wife's and baby's calendars** to `.env`
+1. **Add Person 2's and child's calendars** to `.env`
 2. **Set up doorbell automation** in Home Assistant
 3. **Add Todoist tasks** to see them on the wallboard
 4. **Customize night mode hours** if needed (in `frontend/src/hooks/useNightMode.ts`)

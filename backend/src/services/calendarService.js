@@ -8,53 +8,53 @@ const cache = new NodeCache({ stdTTL: parseInt(process.env.CALENDAR_CACHE_TTL) |
 export function getCalendarConfigs() {
   const configs = [];
   
-  // Chevon's work calendar
-  if (process.env.CALENDAR_CHEVON_ICS_URL) {
+  // Person 1's work calendar
+  if (process.env.CALENDAR_PERSON1_ICS_URL) {
     configs.push({
-      id: 'chevon',
-      name: process.env.CALENDAR_CHEVON_NAME || 'Chevon',
-      color: process.env.CALENDAR_CHEVON_COLOR || '#3B82F6',
-      url: process.env.CALENDAR_CHEVON_ICS_URL
+      id: 'person1',
+      name: process.env.CALENDAR_PERSON1_NAME || 'Person 1',
+      color: process.env.CALENDAR_PERSON1_COLOR || '#3B82F6',
+      url: process.env.CALENDAR_PERSON1_ICS_URL
     });
   }
   
-  // Chevon's personal calendar
-  if (process.env.CALENDAR_CHEVON_PERSONAL_ICS_URL) {
+  // Person 1's personal calendar
+  if (process.env.CALENDAR_PERSON1_PERSONAL_ICS_URL) {
     configs.push({
-      id: 'chevon-personal',
-      name: process.env.CALENDAR_CHEVON_PERSONAL_NAME || 'Chevon (Personal)',
-      color: process.env.CALENDAR_CHEVON_PERSONAL_COLOR || '#60A5FA',
-      url: process.env.CALENDAR_CHEVON_PERSONAL_ICS_URL
+      id: 'person1-personal',
+      name: process.env.CALENDAR_PERSON1_PERSONAL_NAME || 'Person 1 (Personal)',
+      color: process.env.CALENDAR_PERSON1_PERSONAL_COLOR || '#60A5FA',
+      url: process.env.CALENDAR_PERSON1_PERSONAL_ICS_URL
     });
   }
   
-  // Siobhan's work calendar
-  if (process.env.CALENDAR_SIOBHAN_ICS_URL) {
+  // Person 2's work calendar
+  if (process.env.CALENDAR_PERSON2_ICS_URL) {
     configs.push({
-      id: 'siobhan',
-      name: process.env.CALENDAR_SIOBHAN_NAME || 'Siobhan',
-      color: process.env.CALENDAR_SIOBHAN_COLOR || '#EC4899',
-      url: process.env.CALENDAR_SIOBHAN_ICS_URL
+      id: 'person2',
+      name: process.env.CALENDAR_PERSON2_NAME || 'Person 2',
+      color: process.env.CALENDAR_PERSON2_COLOR || '#EC4899',
+      url: process.env.CALENDAR_PERSON2_ICS_URL
     });
   }
   
-  // Siobhan's personal calendar
-  if (process.env.CALENDAR_SIOBHAN_PERSONAL_ICS_URL) {
+  // Person 2's personal calendar
+  if (process.env.CALENDAR_PERSON2_PERSONAL_ICS_URL) {
     configs.push({
-      id: 'siobhan-personal',
-      name: process.env.CALENDAR_SIOBHAN_PERSONAL_NAME || 'Siobhan (Personal)',
-      color: process.env.CALENDAR_SIOBHAN_PERSONAL_COLOR || '#F472B6',
-      url: process.env.CALENDAR_SIOBHAN_PERSONAL_ICS_URL
+      id: 'person2-personal',
+      name: process.env.CALENDAR_PERSON2_PERSONAL_NAME || 'Person 2 (Personal)',
+      color: process.env.CALENDAR_PERSON2_PERSONAL_COLOR || '#F472B6',
+      url: process.env.CALENDAR_PERSON2_PERSONAL_ICS_URL
     });
   }
   
-  // Baby's calendar
-  if (process.env.CALENDAR_BABY_ICS_URL) {
+  // Child's calendar
+  if (process.env.CALENDAR_CHILD_ICS_URL) {
     configs.push({
-      id: 'baby',
-      name: process.env.CALENDAR_BABY_NAME || 'Baby',
-      color: process.env.CALENDAR_BABY_COLOR || '#10B981',
-      url: process.env.CALENDAR_BABY_ICS_URL
+      id: 'child',
+      name: process.env.CALENDAR_CHILD_NAME || 'Child',
+      color: process.env.CALENDAR_CHILD_COLOR || '#10B981',
+      url: process.env.CALENDAR_CHILD_ICS_URL
     });
   }
   
@@ -179,48 +179,48 @@ export async function fetchCalendarEvents(startDate, endDate) {
   const calendarsWithUrls = [];
   
   // Rebuild with URLs for fetching (only include calendars with valid URLs)
-  if (process.env.CALENDAR_CHEVON_ICS_URL && process.env.CALENDAR_CHEVON_ICS_URL.trim()) {
+  if (process.env.CALENDAR_PERSON1_ICS_URL && process.env.CALENDAR_PERSON1_ICS_URL.trim()) {
     calendarsWithUrls.push({
-      id: 'chevon',
-      name: process.env.CALENDAR_CHEVON_NAME || 'Chevon',
-      color: process.env.CALENDAR_CHEVON_COLOR || '#3B82F6',
-      url: process.env.CALENDAR_CHEVON_ICS_URL
+      id: 'person1',
+      name: process.env.CALENDAR_PERSON1_NAME || 'Person 1',
+      color: process.env.CALENDAR_PERSON1_COLOR || '#3B82F6',
+      url: process.env.CALENDAR_PERSON1_ICS_URL
     });
   }
   
-  if (process.env.CALENDAR_CHEVON_PERSONAL_ICS_URL && process.env.CALENDAR_CHEVON_PERSONAL_ICS_URL.trim()) {
+  if (process.env.CALENDAR_PERSON1_PERSONAL_ICS_URL && process.env.CALENDAR_PERSON1_PERSONAL_ICS_URL.trim()) {
     calendarsWithUrls.push({
-      id: 'chevon-personal',
-      name: process.env.CALENDAR_CHEVON_PERSONAL_NAME || 'Chevon (Personal)',
-      color: process.env.CALENDAR_CHEVON_PERSONAL_COLOR || '#60A5FA',
-      url: process.env.CALENDAR_CHEVON_PERSONAL_ICS_URL
+      id: 'person1-personal',
+      name: process.env.CALENDAR_PERSON1_PERSONAL_NAME || 'Person 1 (Personal)',
+      color: process.env.CALENDAR_PERSON1_PERSONAL_COLOR || '#60A5FA',
+      url: process.env.CALENDAR_PERSON1_PERSONAL_ICS_URL
     });
   }
   
-  if (process.env.CALENDAR_SIOBHAN_ICS_URL && process.env.CALENDAR_SIOBHAN_ICS_URL.trim()) {
+  if (process.env.CALENDAR_PERSON2_ICS_URL && process.env.CALENDAR_PERSON2_ICS_URL.trim()) {
     calendarsWithUrls.push({
-      id: 'siobhan',
-      name: process.env.CALENDAR_SIOBHAN_NAME || 'Siobhan',
-      color: process.env.CALENDAR_SIOBHAN_COLOR || '#EC4899',
-      url: process.env.CALENDAR_SIOBHAN_ICS_URL
+      id: 'person2',
+      name: process.env.CALENDAR_PERSON2_NAME || 'Person 2',
+      color: process.env.CALENDAR_PERSON2_COLOR || '#EC4899',
+      url: process.env.CALENDAR_PERSON2_ICS_URL
     });
   }
   
-  if (process.env.CALENDAR_SIOBHAN_PERSONAL_ICS_URL && process.env.CALENDAR_SIOBHAN_PERSONAL_ICS_URL.trim()) {
+  if (process.env.CALENDAR_PERSON2_PERSONAL_ICS_URL && process.env.CALENDAR_PERSON2_PERSONAL_ICS_URL.trim()) {
     calendarsWithUrls.push({
-      id: 'siobhan-personal',
-      name: process.env.CALENDAR_SIOBHAN_PERSONAL_NAME || 'Siobhan (Personal)',
-      color: process.env.CALENDAR_SIOBHAN_PERSONAL_COLOR || '#F472B6',
-      url: process.env.CALENDAR_SIOBHAN_PERSONAL_ICS_URL
+      id: 'person2-personal',
+      name: process.env.CALENDAR_PERSON2_PERSONAL_NAME || 'Person 2 (Personal)',
+      color: process.env.CALENDAR_PERSON2_PERSONAL_COLOR || '#F472B6',
+      url: process.env.CALENDAR_PERSON2_PERSONAL_ICS_URL
     });
   }
   
-  if (process.env.CALENDAR_BABY_ICS_URL && process.env.CALENDAR_BABY_ICS_URL.trim()) {
+  if (process.env.CALENDAR_CHILD_ICS_URL && process.env.CALENDAR_CHILD_ICS_URL.trim()) {
     calendarsWithUrls.push({
-      id: 'baby',
-      name: process.env.CALENDAR_BABY_NAME || 'Baby',
-      color: process.env.CALENDAR_BABY_COLOR || '#10B981',
-      url: process.env.CALENDAR_BABY_ICS_URL
+      id: 'child',
+      name: process.env.CALENDAR_CHILD_NAME || 'Child',
+      color: process.env.CALENDAR_CHILD_COLOR || '#10B981',
+      url: process.env.CALENDAR_CHILD_ICS_URL
     });
   }
   

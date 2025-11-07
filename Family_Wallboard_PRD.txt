@@ -6,7 +6,7 @@ meals, and live doorbell feed (via Home Assistant + Ring). The UI must be large-
 auto-refreshing, and work offline briefly if Wi-Fi drops.
 
 1. Core Features
-- Unified Calendar View: Display combined Google / Outlook / iCloud calendars (via iCal / ICS feeds). Color-code by person (e.g., Chevon – blue, Wife – pink, Kids – green). Show Day / Week / Month views.
+- Unified Calendar View: Display combined Google / Outlook / iCloud calendars (via iCal / ICS feeds). Color-code by person (e.g., Person 1 – blue, Person 2 – pink, Child – green). Show Day / Week / Month views.
 - To-Do / Chore List: Read/write tasks from Todoist API (family project). Toggle complete, add quick tasks, auto-refresh.
 - Meal Planner: Load weekly meals from meals.json (or Google Sheet API later). Show “Dinner Tonight” prominently.
 - Ring Camera / Home Assistant Integration: When doorbell rings, display PiP live view overlay (WebRTC stream from HA entity camera.ring_front_door) for ~60 s, then auto-dismiss.
